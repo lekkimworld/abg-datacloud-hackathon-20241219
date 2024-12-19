@@ -6,6 +6,7 @@ export default class ProductChurnScoreSimple extends LightningElement {
     score_timestamp;
     score_num;
     score_category;
+    loading = true;
     
 
     @api set recordId(value) {
@@ -15,6 +16,8 @@ export default class ProductChurnScoreSimple extends LightningElement {
             this.handleResults(data);
         }).catch(error => {
             console.log("error", error);
+        }).finally(() => {
+            this.loading = false;
         })
     }
     get recordId() {

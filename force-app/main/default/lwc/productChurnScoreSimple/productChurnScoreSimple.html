@@ -6,8 +6,11 @@
                 <div>Score date: {score_date}</div>
             </lightning-card>
         </template>
-        <template lwc:else>
+        <template lwc:elseif={loading}>
             <lightning-spinner></lightning-spinner>
+        </template>
+        <template lwc:else>
+            No churn score found.
         </template>
     </lightning-card>
 </template>
